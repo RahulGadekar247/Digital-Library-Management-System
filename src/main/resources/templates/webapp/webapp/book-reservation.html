@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Reservation Form</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Reservation Form</h1>
+	<form id="reservationForm">
+		<label for="bookId">Book ID:</label>
+		<input type="text" id="bookId" name="bookId" required><br><br>
+		
+		<label for="memberId">Member ID:</label>
+		<input type="text" id="memberId" name="memberId" required><br><br>
+		
+		<label for="reservationDate">Reservation Date:</label>
+		<input type="date" id="reservationDate" name="reservationDate" required><br><br>
+		
+		<input type="submit" value="Reserve">
+	</form>
+	
+	<div id="message"></div>
+	
+	<script>
+		$(document).ready(function() {
+			$('#reservationForm').submit(function(event) {
+				// Prevent the form from submitting normally
+				event.preventDefault();
+				var formData = {
+					'bookId': $('#bookId').val(),
+					'memberId': $('#memberId').val(),
+					'reservationDate': $('#reservationDate').val()
+				};
+				
+				$.ajax({
+					type: 'POST',
+					url: '/reservation/reserve',
+					data: formData,
+					success: function(response) {
+						$('#message').text(response);
+					},
+					error: function(xhr, status, error) {
+						$('#message').text('Reservation failed. Please try again later.');
+					}
+				});
+			});
+		});
+	</script>
+</body>
+</html>

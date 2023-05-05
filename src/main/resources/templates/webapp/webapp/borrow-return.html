@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Borrow and Return Books</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Borrow and Return Books</h1>
+	</header>
+	<main>
+		<section>
+			<h2>Borrow a Book</h2>
+			<form id="borrow-form">
+				<label for="member-id">Member ID:</label>
+				<input type="text" id="member-id" name="member-id" required>
+				<label for="book-id">Book ID:</label>
+				<input type="text" id="book-id" name="book-id" required>
+				<label for="borrow-date">Borrow Date:</label>
+				<input type="date" id="borrow-date" name="borrow-date" required>
+				<button type="submit" id="borrow-btn">Borrow</button>
+			</form>
+		</section>
+		<section>
+			<h2>Return a Book</h2>
+			<form id="return-form">
+				<label for="member-id">Member ID:</label>
+				<input type="text" id="member-id" name="member-id" required>
+				<label for="book-id">Book ID:</label>
+				<input type="text" id="book-id" name="book-id" required>
+				<label for="return-date">Return Date:</label>
+				<input type="date" id="return-date" name="return-date" required>
+				<button type="submit" id="return-btn">Return</button>
+			</form>
+		</section>
+		<section>
+			<h2>Borrowing History</h2>
+			<label for="member-id">Member ID:</label>
+			<input type="text" id="member-id" name="member-id" required>
+			<button type="submit" id="history-btn">Get History</button>
+			<table id="history-table">
+				<thead>
+					<tr>
+						<th>Book ID</th>
+						<th>Borrow Date</th>
+						<th>Return Date</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</section>
+	</main>
+	<footer>
+		<p> 2023 Borrow and Return Books</p>
+	</footer>
+</body>
+</html>
